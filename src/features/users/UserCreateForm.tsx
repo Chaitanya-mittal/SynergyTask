@@ -101,6 +101,10 @@ function UserCreateForm({ handleForm, editSession = {} }: UserCreateFormProps) {
             id="name"
             {...register("name", {
               required: "Please enter a user name.",
+              minLength: {
+                value: 3,
+                message: "Name must be at least 3 characters long",
+              },
             })}
           />
           {errors?.name && <Error>{errors.name.message}</Error>}
@@ -164,7 +168,17 @@ function UserCreateForm({ handleForm, editSession = {} }: UserCreateFormProps) {
       <FormRow className="flex flex-col sm:flex-row sm:items-center">
         <Label htmlFor="website">Website</Label>
         <div className="flex flex-col">
-          <Input type="text" id="website" {...register("website")} />
+          <Input
+            type="text"
+            id="website"
+            {...register("website", {
+              pattern: {
+                value:
+                  /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+)(\.[a-zA-Z]{2,})([\/\w\.-]*)*\/?$/,
+                message: "Please enter a valid URL", // Custom error message
+              },
+            })}
+          />
           {errors?.website && <Error>{errors.website.message}</Error>}
         </div>
       </FormRow>

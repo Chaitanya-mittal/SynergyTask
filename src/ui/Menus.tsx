@@ -5,6 +5,7 @@ import {
   useState,
   ReactNode,
   MouseEvent,
+  RefObject,
 } from "react";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import useOutsideClick from "../hooks/useOutsideClick";
@@ -155,7 +156,7 @@ function List({ children, name }: ListProps) {
   if (name !== openMenu || !position) return null;
 
   return createPortal(
-    <StyledList ref={myRef} position={position}>
+    <StyledList ref={myRef as RefObject<HTMLUListElement>} position={position}>
       {children}
     </StyledList>,
     document.body,

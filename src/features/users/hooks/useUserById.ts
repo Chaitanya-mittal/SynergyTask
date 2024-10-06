@@ -8,8 +8,7 @@ function useUserById() {
 
     const { data: user, isLoading: loadingUser } = useQuery<User>({
         queryKey: ["user", id],
-        queryFn: () => getUserById(id!)
-        ,
+        queryFn: () => getUserById(id!),
     });
     return { user, loadingUser };
 }

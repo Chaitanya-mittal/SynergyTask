@@ -174,7 +174,8 @@ function UserCreateForm({ handleForm, editSession = {} }: UserCreateFormProps) {
             {...register("website", {
               pattern: {
                 value:
-                  /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+)(\.[a-zA-Z]{2,})([\/\w\.-]*)*\/?$/,
+                  // eslint-disable-next-line no-useless-escape
+                  /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+\.[a-zA-Z]{2,})([\/\w\.-]*)*\/?$/,
                 message: "Please enter a valid URL", // Custom error message
               },
             })}

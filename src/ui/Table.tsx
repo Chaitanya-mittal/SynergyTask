@@ -1,5 +1,4 @@
-"use client";
-import React, { createContext, useContext, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
 import styled from "styled-components";
 
 interface CommonRowProps {

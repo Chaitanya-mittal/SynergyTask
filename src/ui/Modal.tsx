@@ -6,6 +6,7 @@ import {
   useState,
   FC,
   ReactElement,
+  RefObject,
 } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
@@ -131,7 +132,7 @@ const Window: FC<WindowProps> = ({ children, name }) => {
 
   return createPortal(
     <Overlay>
-      <StyledModal ref={myRef}>
+      <StyledModal ref={myRef as RefObject<HTMLDivElement>}>
         <Button onClick={close}>
           <HiXMark />
         </Button>

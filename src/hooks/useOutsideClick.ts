@@ -5,6 +5,7 @@ function useOutsideClick(handler: () => void, capturingPhase: boolean = true): {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
+      // Ensure event.target is an instance of Node
       if (myRef.current && !myRef.current.contains(event.target as Node)) {
         handler();
       }
